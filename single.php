@@ -23,6 +23,9 @@ if ( have_posts() ) : ?>
 		 				<div class="the-excerpt">
 		 					<?php the_content(); ?>
 		 				</div>
+						<div class="the-comments">
+							<?php comments_template(); ?>
+						</div>
 		 			</div>
 		 		</div>
 	 		</article>

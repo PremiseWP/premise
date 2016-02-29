@@ -13,31 +13,10 @@ get_header();
 	<?php
 	if ( have_posts() ) : ?>
 	<div class="the-loop">
-		<div class="premise-row">
-			<?php
-			while ( have_posts() ) : the_post(); ?>
-				<article <?php post_class( 'col4 premise-flip' ); ?>>
-
-						<div class="the-post-content">
-							<a href="<?php the_permalink(); ?>" class="the-permalink premise-block">
-								<?php
-								if ( has_post_thumbnail() ) : ?>
-									<div class="post-thumbnail">
-										<?php the_post_thumbnail( 'full', array( 'class' => 'premise-responsive' ) ); ?>
-									</div>
-								<?php endif; ?>
-								<div class="the-post-title">
-									<h2><?php the_title(); ?></h2>
-								</div>
-							</a>
-							<span class="the-post-excerpt">
-								<?php echo apply_filters('the_content_more_link', get_the_content( 'Read more' ) );  ?>
-							</span>
-						</div>
-
-				</article>
-			<?php
-			endwhile; ?>
+		<div class="premise-row" id="the-loop-content">
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php echo get_template_part( 'content' ); ?>
+			<?php endwhile; ?>
 		</div>
 	</div>
 	<?php

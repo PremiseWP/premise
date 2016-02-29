@@ -28,6 +28,18 @@ var PremiseTheme = {};
 
 	$(document).ready(function(){
 		$('body').hide();
+
+		/**
+		 * Infinite scroll
+		 *
+		 * @link http://jetpack.me/support/infinite-scroll/
+		 */
+		$( document ).on( 'post-load', function () {
+			// New posts have been added to the page.
+			setInterval( function() {
+				$( '.the-loop .premise-row' ).masonry( 'reloadItems' ).masonry( 'layout' );
+			}, 300 );
+		} );
 	});
 
 	$(window).load(function(){
@@ -39,6 +51,8 @@ var PremiseTheme = {};
 			gutter: 0
 		});
 	});
+
+
 
 	/**
 	 * Main object for our premise theme

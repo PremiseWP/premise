@@ -7,7 +7,7 @@
 <head>
 
 	<!-- HTML Head -->
-	<title><?php wp_title(); ?></title>
+	<title><?php wp_title( '&raquo;', true, 'right' ); ?> <?php bloginfo( 'name' ); ?></title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 	<!-- Make Responsive -->

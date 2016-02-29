@@ -6,6 +6,12 @@
  * @subpackage functions
  */
 
+/**
+ * Includes.
+ */
+require_once 'includes/author-box.php';
+
+
 if ( class_exists( 'PremiseCPT' ) ) {
 
 	$team_cpt = new PremiseCPT(
@@ -94,6 +100,20 @@ add_filter( 'the_content_more_link', 'premise_more_link' );
 
 
 
+/**
+ * Add Contact methods to Profile page
+ *
+ * @param array $profile_fields Profile fields.
+ */
+function add_contact_methods( $profile_fields ) {
+
+	// Add Twitter field.
+	$profile_fields['twitter'] = 'Twitter Username';
+
+	return $profile_fields;
+}
+
+add_filter( 'user_contactmethods', 'add_contact_methods' );
 
 
 

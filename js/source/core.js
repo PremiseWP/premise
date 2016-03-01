@@ -38,7 +38,7 @@ var PremiseTheme = {};
 			// New posts have been added to the page.
 			setInterval( function() {
 				$( '.the-loop .premise-row' ).masonry( 'reloadItems' ).masonry( 'layout' );
-			}, 300 );
+			}, 100 );
 		} );
 	});
 

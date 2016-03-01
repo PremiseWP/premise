@@ -122,9 +122,15 @@ p {
 	line-height: inherit;
 }
 
-em {
+em,
+i {
 	font-style: italic;
 	font-family: 'Helvetica Neue', arial, sans-serif;
+}
+
+strong,
+b {
+	font-weight: bold;
 }
 
 a {

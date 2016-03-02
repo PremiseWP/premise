@@ -44,7 +44,14 @@ function uniqueprefix_author_box( $content ) {
 				$display_name . '</a>';
 		}
 
-		$author_details = '<p class="the-author-name">About ' .	$display_name . '</a></p>';
+		$by_or_about = 'About ';
+
+		if ( empty( $user_description ) )
+		{
+			$by_or_about = 'By ';
+		}
+
+		$author_details = '<p class="the-author-name">' . $by_or_about . $display_name . '</a></p>';
 	}
 
 	if ( ! empty( $user_description ) ) {
@@ -53,6 +60,10 @@ function uniqueprefix_author_box( $content ) {
 			<p class="the-author-details">' . nl2br( $user_description ). '</p>';
 
 		$content .= '<div class="the-author">' . $author_details . '</div>';
+	}
+	elseif ( ! empty( $display_name ) )
+	{
+		$content .= $author_details;
 	}
 
 	return $content;

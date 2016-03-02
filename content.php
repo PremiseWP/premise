@@ -21,7 +21,7 @@
 			</div>
 		</a>
 		<span class="the-post-excerpt">
-			<?php echo apply_filters( 'the_content_more_link', get_the_content( 'Read more' ) );  ?>
+			<?php the_content( 'Read more' );  ?>
 		</span>
 	</div>
 

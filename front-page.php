@@ -5,6 +5,8 @@
 
 get_header();
 
+the_post();
+
 ?>
 
 <section id="hero">

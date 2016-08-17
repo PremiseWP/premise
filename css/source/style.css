@@ -3,7 +3,7 @@
  */
 
 .home-hero {
-	padding: 80px 0;
+	padding-top: 60px;
 }
 
 .hero-cta.pwps-btn.pwps-btn-lg {
@@ -33,4 +33,27 @@
 .pwps-btn.pwps-btn-lg {
 	padding: 25px 40px;
 	font-size: 20px;
+}
+
+
+
+.pwps-post-content iframe {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+pre {
+	border-right: 1px solid #ccc !important;
+	display: block;
+	box-sizing: border-box;
+	padding: 20px 10px !important;
+	background-color: #fcfcfc;
+}
+
+pre code {
+	padding: 0;
+	background-color: transparent;
+	/*color: #000;*/
+	font-size: 16px;
+	line-height: 24px;
 }

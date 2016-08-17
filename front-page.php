@@ -1,44 +1,41 @@
-<?php 
+<?php
 /**
- * Template Name: Home
+ * Front Page
+ *
+ * @package Simplicity
  */
 
 get_header();
 
-the_post();
-
 ?>
 
-<section id="hero">
-	<div class="container">
-		
-		<div class="hero-text">
-			<h1>Your next project starts with this framework.</h1>
-			<div class="hero-cta-wrapper">
-				<a href="https://github.com/PremiseWP/Premise-WP/archive/master.zip" target="_blank" class="hero-cta" onclick="ga('send', 'event', 'Buttons', 'play', 'Fall Campaign');">
-					NEED IT NOW!
-				</a>
+<section id="pwps-front-page">
+
+	<div class="premise-align-center home-hero">
+		<h1>A Wordpress framework built for developers.</h1>
+		<h3>Build fully custom themes and plugins faster.</h3>
+		<a class="hero-cta pwps-btn pwps-btn-lg" href="https://github.com/PremiseWP/Premise-WP/archive/master.zip" target="_blank">
+			<i class="fa fa-github"></i> GitHub
+		</a>
+	</div>
+
+	<div class="whats-special">
+		<h2>What's so special about Premise WP?</h2>
+		<div class="premise-row">
+			<div class="span4" style="height: 300px;width: 300px;margin-bottom: 30px;">
+				<?php echo premise_output_video( 'YtaJdn4gGy0' ); ?>
 			</div>
+			<p>Aside form being Open Source, Premise WP is maintained by a group of developers that 
+			build beautiful things for the web every day leveraging the power of Wordpress. Put quite
+			literally, it helps us build s**t faster and we thought we should share it.</p>
+			<p><b>Full disclosure -</b> There is no user interface. When you install Premise WP on your Wordpress site you <b>will not</b> see 
+			a UI, settings page, or any sort of <a href="https://en.wikipedia.org/wiki/Graphical_user_interface" target="_blank">GUI</a>.
+			That's because Premise WP has no settings, it is merely a library of functions and classes that make your live easier as a developer.</p>
 		</div>
-
-		<div class="hero-image-wrapper">
-			<img src="<?php echo get_template_directory_uri() . '/img/iphone.png'; ?>" class="hero-image iphone">
-			<img src="<?php echo get_template_directory_uri() . '/img/yellow_layer.png'; ?>" class="hero-image yellow-layer">
-			<img src="<?php echo get_template_directory_uri() . '/img/red_layer.png'; ?>" class="hero-image red-layer">
-			<img src="<?php echo get_template_directory_uri() . '/img/blue_layer.png'; ?>" class="hero-image blue-layer">
-		</div>
-
 	</div>
-</section>
 
-<div class="hero-bottom-wrapper">
-	<div class="container">
-		<p class="triangle-center-down">or learn about it if you must.</p>
-	</div>
-</div>
+	<?php get_template_part( 'loop' ); ?>
 
-<section id="home-content">
-	<div><?php the_content(); ?></div>
 </section>
 
 <?php get_footer(); ?>

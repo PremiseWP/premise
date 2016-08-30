@@ -13,7 +13,7 @@
 		resetPortfolioItems();
 
 		resetProtfoliioSizes();
-		
+
 		$(window).scroll(function(){
 			scrollContent();
 		});
@@ -29,26 +29,26 @@
 
 	function scrollContent(){
 		var totalScroll = $(document).height() - $(window).height();
-		
+
 		if(browserMobile){
 			newScroll = $(window).scrollTop();
 		} else {
 			if(whichBrs() == 'Safari' || whichBrs() == 'Chrome'){
 				newScroll = $('body').scrollTop();
-			} 
+			}
 			else {
 				newScroll = $('html,body').scrollTop();
 			}
 		}
-		
+
 		// Show Flip Images
 		jQuery('.portfolio_main_holder .mix').each(function(){
-			if(newScroll + $(window).height() >= $(this).offset().top + 50 
-				&& currentScroll < newScroll) 
+			if(newScroll + $(window).height() >= $(this).offset().top + 50
+				&& currentScroll < newScroll)
 					$(this).addClass('animated');
-			if(!browserMobile 
-				&& newScroll + $(window).height() <= $(this).offset().top + 250 
-				&& currentScroll > newScroll) 
+			if(!browserMobile
+				&& newScroll + $(window).height() <= $(this).offset().top + 250
+				&& currentScroll > newScroll)
 				$(this).removeClass('animated');
 		});
 
@@ -60,13 +60,13 @@
 	function curtains() {
 
 		var totalScroll = $(document).height() - $(window).height();
-		
+
 		if(browserMobile){
 			newScroll = $(window).scrollTop();
 		} else {
 			if(whichBrs() == 'Safari' || whichBrs() == 'Chrome'){
 				newScroll = $('body').scrollTop();
-			} 
+			}
 			else {
 				newScroll = $('html,body').scrollTop();
 			}
@@ -86,7 +86,7 @@
 		// 			$(this).addClass('fixed_section').css('transform', 'translateY(-'+ totalScroll - (totalScroll - 1) +'px)');
 		// 	}
 
-		// 	if(!browserMobile 
+		// 	if(!browserMobile
 		// 		&& newScroll + $(window).height() <= $(this).offset().top + $(window).height()
 		// 			&& currentScroll > newScroll) {
 		// 				$(this).removeClass('fixed_section').css('transform', 'translateY(0px)');

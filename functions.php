@@ -11,92 +11,18 @@
  */
 require_once 'includes/author-box.php';
 
-
-if ( class_exists( 'PremiseCPT' ) ) {
-
-	$team_cpt = new PremiseCPT(
-		array(
-			'post_type_name' => 'premise_team_member',
-			'singular' => 'Team Member',
-			'plural' => 'Team Members',
-			'slug' => 'premise-team-member',
-		),
-		array(
-			'supports' => array( 'thumbnail', 'editor', 'title', 'author' ),
-		)
-	);
-}
-
-
+show_admin_bar( false );
 
 if ( ! function_exists( 'premise_theme_scripts' ) ) {
 	/**
 	 * Enqueue theme's styles and script.
 	 */
 	function premise_theme_scripts() {
-		wp_enqueue_style( 'premise-theme-css', get_template_directory_uri() . '/css/style.min.css' );
-		wp_enqueue_script( 'premise-theme-js', get_template_directory_uri() . '/js/script.min.js', array( 'jquery' ) );
+		wp_enqueue_style( 'premise-theme-css', get_stylesheet_directory_uri() . '/css/style.min.css' );
+		wp_enqueue_script( 'premise-theme-js', get_stylesheet_directory_uri() . '/js/script.min.js', array( 'jquery' ) );
 	}
 	add_action( 'wp_enqueue_scripts', 'premise_theme_scripts' );
 }
-
-
-
-
-if ( ! function_exists( 'premise_theme_support' ) ) {
-	/**
-	 * Premise theme support
-	 *
-	 * @return void add theme needed support
-	 */
-	function premise_theme_support() {
-		add_theme_support( 'post-thumbnails' );
-
-
-		add_image_size( 'premise-theme-thumbnail', 1600, 400 );
-
-		/**
-		 * Infinite scroll
-		 *
-		 * @see Dashboard > Jetpack > Settings > Scroll Infinitely setting
-		 *
-		 * @link http://jetpack.me/support/infinite-scroll/.
-		 */
-		add_theme_support( 'infinite-scroll', array(
-			'container' => 'the-loop-content', // ID of the HTML element to which Infinite Scroll should add additional posts to.
-			'footer' => 'blog', // footer parameter helps blend this footer with your theme design. By passing another ID, the infinite scroll footer will match its width so that it fits perfectly in your design. If you pass a false value instead, no new footer would be added.
-			'posts_per_page' => 8,
-		) );
-	}
-	add_action( 'after_setup_theme', 'premise_theme_support' );
-}
-
-
-
-
-
-if ( ! function_exists( 'premise_nav_menus' ) ) {
-	/**
-	 * Register nav manus
-	 *
-	 * @return void registers our nav menus
-	 */
-	function premise_nav_menus() {
-
-		register_nav_menus( array(
-			'primary' => 'Menu',
-		) );
-	}
-	add_action( 'init', 'premise_nav_menus' );
-}
-
-
-
-function premise_more_link( $link ) {
-	$link = preg_replace( '|#more-[0-9]+|', '', $link );
-	return '<div class="premise-clear-float">'.$link.'</div>';
-}
-add_filter( 'the_content_more_link', 'premise_more_link' );
 
 
 
@@ -114,42 +40,6 @@ function add_contact_methods( $profile_fields ) {
 }
 
 add_filter( 'user_contactmethods', 'add_contact_methods' );
-
-
-
-function show_post_content( $post_id ) {
-	if ( empty( $post_id ) ) {
-		return false;
-	}
-
-	switch_to_blog( 4 );
-	$content = apply_filters( 'the_content', get_post_field( 'post_content', $post_id ) );
-	restore_current_blog();
-	echo $content;
-}
-
-function load_post_content_callback() {
-	$post_id = $_POST['post_id'];
-	show_post_content( $post_id );
-	die();
-}
-
-add_action( 'wp_ajax_load_post_content', 'load_post_content_callback' );
-add_action( 'wp_ajax_nopriv_load_post_content', 'load_post_content_callback' );
-
-
-
-
-
-
-
-/*
-=	=	=	=	=	=	=	=	=	=	=	=	=	=	=	=	=	=	=	=	=	=
-  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =	  =
- */
-
-
-
 
 
 
@@ -261,73 +151,3 @@ class premise_TM {
 		echo ' value="' . esc_attr( $value ) . '" size="25" />';
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

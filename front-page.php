@@ -1,6 +1,6 @@
 <?php
 /**
- * Home / Blog Page Template
+ * Front Page
  *
  * @package Simplicity
  */
@@ -9,14 +9,18 @@ get_header();
 
 ?>
 
-<section id="pwps-home" <?php pwps_the_section_class(); ?>>
+<section id="pwps-front-page" <?php pwps_the_section_class(); ?>>
 
 	<div <?php pwps_the_loop_class(); ?>>
 
 		<?php
 		if ( have_posts() ) :
 
-			pwps_the_loop();
+			while ( have_posts() ) : the_post();
+
+				get_template_part( 'content' );
+
+			endwhile;
 
 		else :
 

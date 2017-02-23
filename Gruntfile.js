@@ -65,11 +65,11 @@ module.exports = function(grunt) {
 			},
 			target: {
 				files: {
-					'css/style.min.css': ['css/source/style.css', 'css/source/responsive.css']
+					'css/style.min.css': ['css/source/*.css']
 				}
 			}
 		}
-		
+
 	});
 
 	/**

@@ -11,7 +11,7 @@ get_header();
 
 <section id="pwps-home"<?php pwps_the_section_class(); ?>>
 
-	<?php get_template_part( 'loop' ); ?>
+	<?php include 'front-page.html'; ?>
 
 </section>
 

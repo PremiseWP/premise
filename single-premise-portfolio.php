@@ -10,7 +10,7 @@ get_header();
 ?>
 
 <section id="pwpp-single-portfolio" class="premise-block premise-clear-float">
-
+<div id="pwps-content" class="pwps-container">
 	<div class="pwpp-container premise-clear-float">
 
 		<?php if ( have_posts() ) :
@@ -60,7 +60,7 @@ get_header();
 		endif; ?>
 
 	</div>
-
+</div>
 </section>
 
 <?php get_footer(); ?>
